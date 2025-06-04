@@ -1,0 +1,13 @@
+#menu-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#qr-image {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
