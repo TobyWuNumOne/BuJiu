@@ -1,0 +1,25 @@
+[
+    {
+        "id": "abc123",
+        "title": "午餐便當揪團",
+        "menuImage": "/image/breakfast_menu.jpg",
+        "qrImage": "/image/fakeQrcode.jpg",
+        "orders": [
+            { "name": "小明", "item": "雞腿飯", "price": 85, "note": "不要辣" },
+            { "name": "小華", "item": "牛肉麵", "price": 90, "note": "少油" },
+            { "name": "小華", "item": "牛肉麵", "price": 90, "note": "加辣" },
+            { "name": "小美", "item": "排骨飯", "price": 75, "note": "去骨" }
+        ]
+    },
+    {
+        "id": "def456",
+        "title": "晚餐外送訂單",
+        "menuImage": "/image/dinner_menu.jpg",
+        "qrImage": "/image/fakeQrcode2.jpg",
+        "orders": [
+            { "name": "小明", "item": "披薩", "price": 250, "note": "加雙倍起司" },
+            { "name": "小華", "item": "義大利麵", "price": 180, "note": "" },
+            { "name": "小美", "item": "沙拉", "price": 120, "note": "" }
+        ]
+    }
+]

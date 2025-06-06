@@ -66,28 +66,34 @@
 
     <script>
         // 假資料
-        const groupData = {
-            id: "abc123",
-            title: "午餐便當揪團",
-            menuImage: "/image/breakfast_menu.jpg",
-            qrImage: "/image/fakeQrcode.jpg",
-            orders: [
-                { name: "小明", item: "雞腿飯", price: 85, note: "不要辣" },
-                { name: "小華", item: "牛肉麵", price: 90, note: "少油" },
-                { name: "小華", item: "牛肉麵", price: 90, note: "加辣" },
-                { name: "小美", item: "排骨飯", price: 75, note: "去骨" }
-            ]
-        };
+        const groupData = {};
+        //如果回傳的資料有所有的資料要收尋的話只能以個一個找嗎
+        // 載入假資料的函數
+        async function loadFakeData() {
+            try {
+                const data = await fetch('/fakedata.json').then(response => response.json());
 
-        // 初始化畫面
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("group-name").textContent = groupData.title;
-            document.getElementById("group-id").textContent = groupData.id;
-            document.getElementById("menu-image").src = groupData.menuImage;
-            document.getElementById("qr-image").src = groupData.qrImage;
+                groupData.title = data[0].title;
+                groupData.id = data[0].id;
+                groupData.menuImage = data[0].menuImage;
+                groupData.qrImage = data[0].qrImage;
+                groupData.orders = data[0].orders || [];
+                console.log(groupData);
 
-            renderOrderList();
-        });
+                // 初始化畫面
+                document.getElementById("group-name").textContent = groupData.title;
+                document.getElementById("group-id").textContent = groupData.id;
+                document.getElementById("menu-image").src = groupData.menuImage;
+                document.getElementById("qr-image").src = groupData.qrImage;
+
+                renderOrderList();
+            } catch (error) {
+                console.error('載入假資料失敗:', error);
+            }
+        }
+
+        // 在 DOMContentLoaded 時載入假資料
+        document.addEventListener("DOMContentLoaded", loadFakeData);
 
         // 表單送出處理
         document.getElementById("order-form").addEventListener("submit", function (e) {
